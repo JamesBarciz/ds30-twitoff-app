@@ -17,6 +17,8 @@ def create_app():
 
     @app.route('/')
     def base():
+        if not User.query.all():
+            return render_template('base.html', users=[])
         return render_template('base.html', users=User.query.all())
 
     @app.route('/add_user')
