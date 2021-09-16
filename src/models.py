@@ -14,7 +14,7 @@ class User(DB.Model):
 
 class Tweet(DB.Model):
     id = DB.Column(DB.BIGINT, primary_key=True, nullable=False)
-    text = DB.Column(DB.Unicode(300), nullable=False)
+    text = DB.Column(DB.Unicode(500), nullable=False)
     user_id = DB.Column(DB.BIGINT, DB.ForeignKey('user.id'), nullable=False)
     user = DB.relationship('User', backref=DB.backref('tweets', lazy=True))
 
