@@ -23,7 +23,7 @@ def get_user_and_tweets(username):
     # Use the `literal_eval` method to turn the JSON response into a Python dictionary
     user = ast.literal_eval(requests.get(HEROKU_URL + username).text)
 
-    nlp = spacy.load('my_nlp_model')
+    nlp = spacy.load('src/my_nlp_model')
 
     try:
 
