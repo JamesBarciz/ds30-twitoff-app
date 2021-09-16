@@ -16,8 +16,8 @@ def predict_user(user1_name, user2_name, tweet_text):
     user2 = User.query.filter(User.name == user2_name).one()
 
     # Embed the tweets using Basilica's functionality
-    user1_embeddings = np.array([tweet.embedding for tweet in user1.tweets])
-    user2_embeddings = np.array([tweet.embedding for tweet in user2.tweets])
+    user1_embeddings = np.array([tweet.embeddings for tweet in user1.tweets])
+    user2_embeddings = np.array([tweet.embeddings for tweet in user2.tweets])
 
     # X = embeddings
     # y = labels
@@ -29,7 +29,7 @@ def predict_user(user1_name, user2_name, tweet_text):
     log_reg = LogisticRegression().fit(embeddings, labels)
 
     # Embed the tweet_text using SpaCy vectorizer to use with predictive model
-    nlp = spacy.load('twitoff/my_model')
+    nlp = spacy.load('src/my_nlp_model')
     tweet_embedding = nlp(tweet_text).vector
 
     # Return the predicted label
