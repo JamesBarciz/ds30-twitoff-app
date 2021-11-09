@@ -3,7 +3,7 @@ import ast
 
 import spacy
 
-from .models import DB, User, Tweet
+from src.models import DB, User, Tweet
 
 
 def get_user_and_tweets(username):

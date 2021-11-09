@@ -2,13 +2,12 @@ from decouple import config
 
 from flask import Flask, render_template, request
 
-from .models import DB, User
-from .predict import predict_user
-from .twitter import get_user_and_tweets
+from src.models import DB, User
+from src.predict import predict_user
+from src.twitter import get_user_and_tweets
 
 
 def create_app():
-
     app = Flask(__name__)
 
     app.config['SQLALCHEMY_DATABASE_URI'] = config('DATABASE_URI')
@@ -22,15 +21,18 @@ def create_app():
             return render_template('base.html', users=[])
         return render_template('base.html', users=User.query.all())
 
-    @app.route('/add_user')
+    @app.route('/add_user', methods=['POST'])
     def add_user():
-        user = request.args['username']
+        user = request.form.get('user_name')
+
         try:
             response = get_user_and_tweets(user)
             if not response:
-                return 'Nothing was added.'
+                return 'Nothing was added.' \
+                       '<br><br><a href="/" class="button warning">Go Back!</a>'
             else:
-                return f'User: {user} successfully added!'
+                return f'User: {user} successfully added!' \
+                       '<br><br><a href="/" class="button warning">Go Back!</a>'
         except Exception as e:
             return str(e)
 
@@ -44,11 +46,11 @@ def create_app():
             tweets = []
         return render_template('user.html', title=name, tweets=tweets, message=message)
 
-    @app.route('/predict')
+    @app.route('/compare', methods=['POST'])
     def predict():
-        user0 = request.args['user0']
-        user1 = request.args['user1']
-        tweet_text = request.args['tweet_text']
+        user0 = request.form.get('user0')
+        user1 = request.form.get('user1')
+        tweet_text = request.form.get('tweet_text')
 
         prediction = predict_user(user0, user1, tweet_text)
         message = '"{}" is more likely to be said by @{} than @{}'.format(
@@ -56,8 +58,7 @@ def create_app():
             user1 if prediction else user0
         )
 
-        return message
-
+        return message + '<br><br><a href="/" class="button warning">Go Back!</a>'
 
     @app.route('/refresh')
     def refresh():

@@ -6,7 +6,7 @@ import spacy
 from sklearn.linear_model import LogisticRegression
 
 # Local imports
-from .models import User
+from src.models import User
 
 
 def predict_user(user1_name, user2_name, tweet_text):
