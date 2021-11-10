@@ -5,6 +5,8 @@ DB = SQLAlchemy()
 
 
 class User(DB.Model):
+    # In class, we create a `most_recent_tweet_id` attribute but, this cannot be done in the workaround
+    # as there is no way to interact with my API aside from requesting a Twitter user
     id = DB.Column(DB.BIGINT, primary_key=True, nullable=False)
     name = DB.Column(DB.String(15), unique=True, nullable=False)
 

@@ -3,7 +3,11 @@ import ast
 
 import spacy
 
+# Local import
 from src.models import DB, User, Tweet
+
+## Local import without relative syntax
+# from models import DB, User, Tweet
 
 
 def get_user_and_tweets(username):
@@ -23,6 +27,7 @@ def get_user_and_tweets(username):
     # Use the `literal_eval` method to turn the JSON response into a Python dictionary
     user = ast.literal_eval(requests.get(HEROKU_URL + username).text)
 
+    # nlp = spacy.load('my_model')
     nlp = spacy.load('src/my_nlp_model')
 
     try:
