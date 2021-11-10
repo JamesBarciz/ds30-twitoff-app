@@ -100,6 +100,6 @@ As stated before, this model uses *Logistic Regression*.  Similarly to *Linear R
 
 For a more-detailed explanation, check out [some notes I took](https://docs.google.com/document/d/1U3GQTPF2JY8DY9y6kqiH2gVc2OuKo888QBdwybhgHW0/edit?usp=sharing) on a [StatQuest video on Logistic Regression](https://www.youtube.com/watch?v=yIYKR4sgzI8)!
 
-## Questions
+Questions
 ---
 Questions can be directed to my email jamesjbarciz@gmail.com.  I am generally quick to respond depending on work schedule!
