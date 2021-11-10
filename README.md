@@ -34,7 +34,7 @@ Directory Structure
 ├─ .gitignore
 ├─ Procfile                   → Required for Heroku deployment
 ├─ README.md
-└─ requirements.txt           → Specifies Python version for Heroku
+└─ requirements.txt
 ```
 
 Running the Application (Reproducibility)
