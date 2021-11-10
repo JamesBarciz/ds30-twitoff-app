@@ -76,7 +76,7 @@ You will need to create a virtual environment.  For this application, we used th
         - `user (public)`
         - `tweet (public)`
     - These are your tables you generated with the ORM *SQLAlchemy*
-- If you have a local browser such as [Tableplus](https://tableplus.com/) (free version is fine) you can provide information from your instance dashboard to connect to this instance.
+- If you have a local browser such as DataGrip or [Tableplus](https://tableplus.com/) (free version is fine) you can provide information from your instance dashboard to connect to this instance.
 
 ### Post Setup
 If this process works, you can open the application locally by running `flask run`
