@@ -45,6 +45,9 @@ This application does not directly use the Twitter API therefore, you will not n
 
 I would also recommend setting up a free (20 MB) PostgreSQL instance through [ElephantSQL.com](https://www.elephantsql.com/) and obtaining a database URL to use in your `.env` file.
 
+Lastly, as most students were having issues using relative imports to run their application locally I provided local modular imports in comments wherever it was necessary.  That being said, when the application is pushed to Heroku it **must** include relative or absolute import syntax from the parent folder.
+- i.e. `from src.models import DB`
+
 ### Spinning up the Flask Application
 You will need to create a virtual environment.  For this application, we used the built-in *virtualenv* module over Pipenv.
     
