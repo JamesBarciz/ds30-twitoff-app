@@ -5,8 +5,6 @@ Tech Stack
 ---
 This application is primarily written in *Python 3.8.5* however, the webpages are written with *HTML incorporating Python*.  
 
-*Tweepy* is used in this application (in tandem with developer API access) to connect to the Twitter API to obtain user Tweets.
-
 The microframework used to build this application is *Flask* and eventually, with the help of *Gunicorn*, will be deployed to Heroku.
 
 The database is a *PostgreSQL* instance generated using ElephantSQL.com.
